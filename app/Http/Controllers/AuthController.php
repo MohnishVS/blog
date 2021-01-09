@@ -14,18 +14,20 @@ class AuthController extends Controller
     }
     public function registerus(Request $request)
     {
+
         $request->validate([
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:4'
         ]);
 
-
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
+
+
 
         return response()->json($user);
     }
