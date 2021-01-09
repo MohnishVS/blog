@@ -12,7 +12,7 @@ class AuthController extends Controller
         $token = $user->createToken($user->email.'-'.now());
         return $token->accesstoken;
     }
-    public function registerUs(Request $request)
+    public function registerus(Request $request)
     {
         $request->validate([
             'username' => 'required',
