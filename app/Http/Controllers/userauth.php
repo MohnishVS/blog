@@ -20,15 +20,18 @@ class userauth extends Controller
                     return redirect('home');
                 }
                 else{
-                    echo 'wrong password';
+                    $response = ["message" => "Password mismatch"];
+                    return response($response, 422);
                 }
             }
             else{
-                echo 'wrong username';
+                $response = ["message" => "Password mismatch"];
+                return response($response, 422);
             }
         }
         else{
-            echo "wrong username";
+            $response = ["message" =>'User does not exist'];
+            return response($response, 422);
         }
     }
 }

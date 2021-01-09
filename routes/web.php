@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userauth;
+use App\Http\Controllers\reguser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,8 @@ Route::get('/login', function () {
     }
     return view('login');
  });
-Route::view("home", 'home.index');
+
+ Route::view("home", 'home.index');
 
 Route::get('/logout', function () {
     if(session()->has('user')){
@@ -35,3 +37,12 @@ Route::get('/logout', function () {
     }
     return redirect('login');
  });
+
+ Route::get('/register', function () {
+    if(session()->has('user')){
+        return redirect('home');
+    }
+    return view('register');
+ });
+
+ Route::post("reguser", [reguser::class,'registeruser']);

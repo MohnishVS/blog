@@ -5,7 +5,7 @@
 @endsection
 
 @section('headh1')
-    Home Hello,{{session('user')}}
+    Home  @if(session()->has('user'))Hello,{{session('user')}}@endif
 @endsection
 
 @section('headh3')
