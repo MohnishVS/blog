@@ -23,25 +23,16 @@ Route::view("about", 'about.about');
 Route::post("user", [userauth::class,'userlogin']);
 
 Route::get('/login', function () {
-    if(session()->has('user')){
-        return redirect('home');
-    }
     return view('login');
  });
 
  Route::view("home", 'home.index');
 
 Route::get('/logout', function () {
-    if(session()->has('user')){
-        session()->pull('user');
-    }
     return redirect('login');
  });
 
  Route::get('/register', function () {
-    if(session()->has('user')){
-        return redirect('home');
-    }
     return view('register');
  });
 
