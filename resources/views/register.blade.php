@@ -9,7 +9,7 @@
     <div class="card col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-left form pt-4 my-4 bg-dark text-white">
         <h2 class="display-4">Register</h2>
         <div class="form-group">
-            <form action="reguser" method="post">
+            <form action="api/registerus" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="Username">Username:</label><br />
