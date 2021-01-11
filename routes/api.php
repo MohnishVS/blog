@@ -16,4 +16,10 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::post('/registerus', [AuthController::class,'registerus']);
+
 Route::post('/loginus', [AuthController::class,'loginus']);
+
+Route::middleware('auth:api')->group(function() {
+
+    Route::get('user/{userId}/detail', 'UserController@show');
+});

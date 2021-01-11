@@ -20,20 +20,20 @@ Route::get('/', function () {
 
 Route::view("about", 'about.about');
 
-Route::post("user", [userauth::class,'userlogin']);
+//Route::post("user", [userauth::class,'userlogin']);
 
 Route::get('/login', function () {
     return view('login');
  });
 
- Route::view("home", 'home.index');
+ Route::view('/home', 'home.index');
 
 Route::get('/logout', function () {
     return redirect('login');
  });
 
- Route::get('/register', function () {
+Route::get('/register', function () {
     return view('register');
  });
 
- Route::post("reguser", [reguser::class,'registeruser']);
+//Route::post("reguser", [reguser::class,'registeruser']);
