@@ -35,30 +35,6 @@ class AuthController extends Controller
 
     public function loginus(Request $request)
 {
-    $request->validate([
-        'username' => 'required|exists:users,username',
-        'password' => 'required'
-    ]);
 
-
-    if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-        $Auth_user = Auth::user();
-        $user = User::find($Auth_user->username.'-'.now());
-        $tokenuser= $user->createToken('LaravelAuthApp')->accessToken;
-        return redirect('home');
-    }
-    else{
-        return response()->json([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
-    }
-
-    // if (Auth::attempt(['username'=>$request->username, 'password'=>$request->password])) {
-    //     $user = Auth::user();
-    //     $token = $user->createToken($user->username.'-'.now())->accessToken;
-    //     return response()->json(['token' => $token], 200);
-    // } else {
-    //     return response()->json(['error' => 'Unauthorised'], 401);
-    // }
 }
 }
