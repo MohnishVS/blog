@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::post('/registerus', [AuthController::class,'registerus']);
 
 Route::post('/loginus', [AuthController::class,'loginus']);
 
-Route::middleware('auth:api')->group(function() {
+// Route::middleware('auth:api')->group(function() {
 
-    Route::get('user/{userId}/detail', 'UserController@show');
-});
+
+// });
+
+Route::get('user/{user_id}/detail', [UserController::class,'show']);
