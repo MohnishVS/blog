@@ -25,4 +25,6 @@ Route::post('/loginus', [AuthController::class,'loginus']);
 
 // });
 
-Route::get('user/{user_id}/detail', [UserController::class,'show']);
+Route::get('/logoutus/{user_id}/logout', [AuthController::class,'logoutus']);
+
+Route::get('user/{user_id}/details', [UserController::class,'show']);
