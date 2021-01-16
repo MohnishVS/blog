@@ -14,25 +14,25 @@ use App\Http\Controllers\reguser;
 |
 */
 
-Route::post('/', function () {
-    redirect()->route('login');
+Route::get('/', function () {
+    return view('login');
 });
 
 Route::view("about", 'about.about');
 
 //Route::post("user", [userauth::class,'userlogin']);
 
-Route::post('/login', function () {
+Route::get('/login', function () {
     return view('login');
  });
 
  Route::view('/home', 'home.index');
 
-Route::post('/logout', function () {
+Route::get('/logout', function () {
     return redirect('login');
  });
 
-Route::post('/register', function () {
+Route::get('/register', function () {
     return view('register');
  });
 
