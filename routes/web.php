@@ -14,7 +14,7 @@ use App\Http\Controllers\reguser;
 |
 */
 
-Route::get('/', function () {
+Route::post('/', function () {
    return view('login');
 });
 
@@ -28,7 +28,7 @@ Route::get('/login', function () {
 
  Route::view('/home', 'home.index');
 
-Route::get('/logout', function () {
+Route::post('/logout', function () {
     return redirect('login');
  });
 
@@ -36,4 +36,5 @@ Route::get('/register', function () {
     return view('register');
  });
 
+ Auth::routes();
 //Route::post("reguser", [reguser::class,'registeruser']);
