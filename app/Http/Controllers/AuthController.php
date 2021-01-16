@@ -16,28 +16,28 @@ class AuthController extends Controller
     public function registerus(Request $request)
     {
 
-        $validator=$request->validate([
+        $request->validate([
             'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:4'
+            'password' => 'required|min:4',
+            'colour' => 'required'
         ]);
 
-        if(!$validator){
-            return response(['errors'=>$validator], 422);
-        }
         $request['remember_token'] = Str::random(10);
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'colour' => $request->colour,
             'remember_token'=> $request['remember_token']
         ]);
 
         if($user!=''){
-            $token = $user->createToken($user->username.'-'.now())->accessToken;
-            return response()->json([
-                'token' => $token,'rem'=>$request->remember_token]);
-            //return redirect('login');
+            $token = $user->createToken($user->username)->accessToken;
+
+            //echo 'alert("Registered Successfully")';
+            return response('registered successfully', 200)
+                  ->header('Content-Type', 'text/plain');
         }
         else{
             return response()->json(['message'=>'not registered']);
@@ -54,7 +54,7 @@ class AuthController extends Controller
         if (Auth::attempt(array('username' => $username , 'password' => $password))) {
              $user = User::where('username', $request->username)->first();
 
-            $token = $user->createToken($user->username.'-'.now());
+            $token = $user->createToken($user->username);
             return response()->json([
                 'token' => $token->accessToken]);
             //return redirect('home');

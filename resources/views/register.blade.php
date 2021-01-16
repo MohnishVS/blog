@@ -26,8 +26,8 @@
                     <input type="password" name="password" class="form-control" id="password" required minlength=4 maxlength=8 placeholder="********"><br />
                 </div>
                 <div class="form-group">
-                    <label for="Confirm Password">Confirm Password:</label><br />
-                    <input type="password" name="confirm_password" class="form-control" id="confirm_password" required minlength=4 maxlength=8 placeholder="********"><br />
+                    <label for="Colour">Favourite Colour:</label><br />
+                    <input type="Text" name="Colour" class="form-control" id="Colour" required ><br />
 
                 </div>
                 <button type="submit" id="registerbtn" class="btn btn-info">Register</button>

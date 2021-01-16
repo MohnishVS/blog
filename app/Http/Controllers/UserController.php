@@ -11,7 +11,7 @@ class UserController extends Controller
         $user = User::find($userid);
 
         if($user) {
-            return response()->json($user);
+            return response()->json($user->colour);
         }
 
         return response()->json(['message' => 'User not found!'], 200);

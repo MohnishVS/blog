@@ -15,14 +15,14 @@ use App\Http\Controllers\reguser;
 */
 
 Route::post('/', function () {
-   return view('login');
+    redirect()->route('login');
 });
 
 Route::view("about", 'about.about');
 
 //Route::post("user", [userauth::class,'userlogin']);
 
-Route::get('/login', function () {
+Route::post('/login', function () {
     return view('login');
  });
 
@@ -32,9 +32,9 @@ Route::post('/logout', function () {
     return redirect('login');
  });
 
-Route::get('/register', function () {
+Route::post('/register', function () {
     return view('register');
  });
 
- Auth::routes();
+
 //Route::post("reguser", [reguser::class,'registeruser']);
