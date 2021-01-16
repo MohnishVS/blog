@@ -36,5 +36,5 @@ Route::get('/register', function () {
     return view('register');
  });
 
- Auth::routes();
+
 //Route::post("reguser", [reguser::class,'registeruser']);
